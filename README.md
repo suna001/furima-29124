@@ -41,17 +41,17 @@ Things you may want to cover:
 
 
 ## items テーブル
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| name         | string     | null: false                    |
-| price        | int        | null: false                    |
-| Description  | string     | null: false                    |
-| category     | string     | null: false                    |
-| condition    | string     | null: false                    |
-| area         | string     | null: false                    |
-| delivery_fee | int        | null: false                    |
-| shipping_day | int        | null: false                    |
-| user         | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| price           | int        | null: false                    |
+| description     | string     | null: false                    |
+| category_id     | string     | null: false                    |
+| condition_id    | string     | null: false                    |
+| area_id         | string     | null: false                    |
+| delivery_fee_id | int        | null: false                    |
+| shipping_day_id | int        | null: false                    |
+| user            | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :user
 
@@ -71,7 +71,7 @@ Things you may want to cover:
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postal_code    | string     | null: false                    |
-| prefectures_id | integer    | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | municipalities | string     | null: false                    |
 | address        | string     | null: false                    |
 | building       | string     |                                |
