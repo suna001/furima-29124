@@ -45,12 +45,12 @@ Things you may want to cover:
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | price           | int        | null: false                    |
-| description     | string     | null: false                    |
-| category_id     | string     | null: false                    |
-| condition_id    | string     | null: false                    |
-| area_id         | string     | null: false                    |
-| delivery_fee_id | int        | null: false                    |
-| shipping_day_id | int        | null: false                    |
+| description     | text       | null: false                    |
+| category_id     | integer    | null: false                    |
+| condition_id    | integer    | null: false                    |
+| area_id         | integer    | null: false                    |
+| delivery_fee_id | integer    | null: false                    |
+| shipping_day_id | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :user
@@ -78,3 +78,4 @@ Things you may want to cover:
 | phone_number   | string     | null: false                    |
 | purchases      | references | null: false, foreign_key: true |
 ### Association
+belongs_to :purchases
