@@ -25,16 +25,16 @@ Things you may want to cover:
 
 #テーブル設計
 ## users テーブル
-| Column             | Type   | Options      |
-| ------------------ | ------ | ------------ |
-| email              | string | unique: true |
-| encrypted_password | string | null: false  |
-| nickname           | string | unique: true |
-| first_name         | string | null: false  |
-| last_name          | string | null: false  |
-| first_name_kana    | string | null: false  |
-| last_name _kana    | string | null: false  |
-| birthday           | date   | null: false  |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| email              | string | unique: true, null: false |
+| encrypted_password | string | unique: true, null: false |
+| nickname           | string | unique: true              |
+| first_name         | string | null: false               |
+| last_name          | string | null: false               |
+| first_name_kana    | string | null: false               |
+| last_name _kana    | string | null: false               |
+| birthday           | date   | null: false               |
 ### Association
 - has_many :items
 - has_many :purchases
@@ -54,6 +54,7 @@ Things you may want to cover:
 | user            | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :user
+- has_one :purchase
 
 
 ## purchases テーブル
@@ -76,6 +77,6 @@ Things you may want to cover:
 | address        | string     | null: false                    |
 | building       | string     |                                |
 | phone_number   | string     | null: false                    |
-| purchases      | references | null: false, foreign_key: true |
+| purchase       | references | null: false, foreign_key: true |
 ### Association
 belongs_to :purchases
