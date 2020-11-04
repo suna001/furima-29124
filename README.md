@@ -28,8 +28,8 @@ Things you may want to cover:
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
 | email              | string | unique: true, null: false |
-| encrypted_password | string | unique: true, null: false |
-| nickname           | string | unique: true              |
+| encrypted_password | string | null: false               |
+| nickname           | string | null: false               |
 | first_name         | string | null: false               |
 | last_name          | string | null: false               |
 | first_name_kana    | string | null: false               |
@@ -79,4 +79,4 @@ Things you may want to cover:
 | phone_number   | string     | null: false                    |
 | purchase       | references | null: false, foreign_key: true |
 ### Association
-belongs_to :purchases
+belongs_to :purchase
