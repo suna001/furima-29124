@@ -10,7 +10,6 @@ priceInput.addEventListener("input", () => {
       const salesProfit = document.getElementById('profit');
       salesProfit.innerHTML = Math.floor(inputValue - taxValue);
 
-    console.log(taxValue);
   })
 
 

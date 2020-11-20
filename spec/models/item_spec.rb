@@ -28,25 +28,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
+      it "カテゴリーの情報が空だと登録できない" do
+        @item.category_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
       it "カテゴリーの情報が選択されていないと登録できない" do
         @item.category_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Category Slect")
+      end
+      it "商品の状態が空だと登録できない" do
+        @item.condition_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it "商品の状態が選択されていないと登録できない" do
         @item.condition_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition status Select")
       end
+      it "配送料の負担が空だと登録できない" do
+        @item.delivery_fee_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
+      end
       it "配送料の負担が選択されていないと登録できない" do
         @item.delivery_fee_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee fee status Select")
       end
+      it "発送元の地域が空だと登録できない" do
+        @item.area_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Area can't be blank")
+      end
       it "発送元の地域が選択されていないと登録できない" do
         @item.area_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Area Select")
+      end
+      it "発送までの日数が空だと登録できない" do
+        @item.shipping_day_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
       it "発送までの日数が選択されていないと登録できない" do
         @item.shipping_day_id = 0
