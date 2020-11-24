@@ -12,11 +12,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.valid? 
+    if @item.save? 
       @item.save
       redirect_to root_path
-    elsif 
-      @item.image = fixture_file_upload('public/images/test_image.png')
     else
       render :new
     end
