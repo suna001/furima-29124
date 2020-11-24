@@ -3,9 +3,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :new, :show]
   
   def index
-    @items = Item.all
     @items = Item.order("created_at DESC")
- 
   end
 
   def new
@@ -17,8 +15,9 @@ class ItemsController < ApplicationController
     if @item.valid? 
       @item.save
       redirect_to root_path
+    elsif 
+      @item.image = fixture_file_upload('public/images/test_image.png')
     else
- 
       render :new
     end
   end
