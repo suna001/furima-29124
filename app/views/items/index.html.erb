@@ -131,7 +131,6 @@
     <% if @items.present? %>
      <% @items.each do |item| %>
         <li class='list'>
-          <%= link_to "#" do %>
             <div class='item-img-content'>
              <%= image_tag item.image.variant(resize: '400x400'), class: 'item-image' %>
               <div class='item-info'>
@@ -141,7 +140,9 @@
                 <div class='item-price'>
                 <span><%= item.price %>円<br><%= item.delivery_fee.name %></span>
               </div>
-          <% end %>
+           <%= link_to '詳細', item_path(item.id), method: :get %>
+
+          <%# <% end %> 
       <% end %>
       <%# 商品がない場合のダミー %>
       <%# 商品がある場合は表示されないようにしましょう %>
