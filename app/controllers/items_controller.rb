@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :item_set, only: [:edit, :show, :update, :destroy]
   def index
     @items = Item.order("created_at DESC")
+    @orders = Order.all
   end
 
   def new
