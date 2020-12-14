@@ -27,6 +27,12 @@ describe UserOrder do
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Area Slect")
       end
+      it "都道府県のidが0だと登録できない" do
+        @user_order.area_id  = 0
+        @user_order.valid?
+        binding.pry
+        expect(@user_order.errors.full_messages).to include("Area Slect")
+      end
       it "市町村が空だと登録できない" do
         @user_order.city  = nil
         @user_order.valid?
