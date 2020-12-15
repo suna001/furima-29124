@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :item_set, only: [:edit, :show, :update, :destroy]
   def index
     @items = Item.order("created_at DESC")
+    @orders = Order.all
   end
 
   def new
@@ -20,6 +21,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
   def edit
@@ -45,7 +49,7 @@ class ItemsController < ApplicationController
       redirect_to action: :show
     end
   end
-
+ 
   private
 
   def item_params

@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   ### Association
   has_one_attached :image
   belongs_to :user
-  # has_one :purchase
+  has_one :order
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -25,4 +25,6 @@ class Item < ApplicationRecord
  validates :price, numericality: { only_integer: true, message: 'Half-width number' } 
  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999, message: 'Out of setting range' } 
 
+
+ 
 end
