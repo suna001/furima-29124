@@ -30,7 +30,6 @@ describe UserOrder do
       it "都道府県のidが0だと登録できない" do
         @user_order.area_id  = 0
         @user_order.valid?
-        binding.pry
         expect(@user_order.errors.full_messages).to include("Area Slect")
       end
       it "市町村が空だと登録できない" do
@@ -45,6 +44,16 @@ describe UserOrder do
       end
       it "電話番号が空だと登録できない" do
         @user_order.phone_number  = nil
+        @user_order.valid?
+        expect(@user_order.errors.full_messages).to include("Phone number is invalid")
+      end
+      it "電話番号が11桁より多いと登録できない" do
+        @user_order.phone_number  = "090111111111"
+        @user_order.valid?
+        expect(@user_order.errors.full_messages).to include("Phone number is invalid")
+      end
+      it "電話番号が数字のみでないと登録できない" do
+        @user_order.phone_number  = "０９０７７８４８９６７"
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Phone number is invalid")
       end
