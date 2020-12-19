@@ -7,8 +7,7 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, length: { minimum: 6 }, message: 'には英字と数字の両方を含めて設定してください'
   
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX, uniqueness: { case_sensitive: false }}
+
   with_options presence: true do
     validates :birthday
     validates :nickname, format: { with: /\A[a-z0-9]+\z/i, message: "は半角英数で入力してください。" }
